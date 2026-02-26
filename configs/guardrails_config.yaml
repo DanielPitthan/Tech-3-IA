@@ -1,0 +1,61 @@
+# Configuração de Guardrails de Segurança
+
+safety:
+  # Disclaimer obrigatório em todas as respostas
+  mandatory_disclaimer: >
+    ⚠️ AVISO: Esta é uma sugestão gerada por IA para apoio à decisão clínica.
+    A decisão final deve ser tomada pelo médico responsável.
+    Este sistema NÃO substitui o julgamento profissional.
+
+  # Nível mínimo de confiança para emitir resposta
+  min_confidence_score: 0.3
+
+  # Resposta quando confiança é insuficiente
+  low_confidence_message: >
+    Não foi possível gerar uma resposta com confiança suficiente.
+    Recomenda-se consulta direta ao protocolo médico ou ao especialista.
+
+# Filtros de Input
+input_filters:
+  # Rejeitar perguntas fora do escopo médico
+  reject_non_medical: true
+  # Tamanho máximo do input (caracteres)
+  max_input_length: 5000
+  # Padrões bloqueados no input
+  blocked_patterns:
+    - "hackear|hacker|invadir"
+    - "como fazer droga|fabricar medicamento"
+    - "suicídio|se matar"
+
+# Filtros de Output
+output_filters:
+  # Ações PROIBIDAS na resposta
+  prohibited_actions:
+    - pattern: "prescrev[oe]|prescrição definitiva|receito"
+      message: "O sistema não pode prescrever medicamentos. Consulte o médico responsável."
+    - pattern: "dose exata.*mg|administr[ae].*comprimido"
+      message: "Dosagens específicas devem ser definidas pelo médico prescritor."
+    - pattern: "diagnóstico definitivo|confirmo o diagnóstico"
+      message: "Diagnósticos definitivos requerem avaliação clínica completa."
+    - pattern: "interrompa o tratamento|pare de tomar|suspenda"
+      message: "Alterações de tratamento devem ser validadas pelo médico responsável."
+
+  # Exigir citação de fontes
+  require_sources: true
+  # Número mínimo de fontes na resposta
+  min_sources: 1
+
+  # Palavras que ativam revisão humana obrigatória
+  escalation_triggers:
+    - "emergência|urgente|risco de vida"
+    - "reação adversa grave|anafilax"
+    - "interação medicamentosa.*grave"
+
+# Auditoria
+audit:
+  # Registrar todas as interações
+  log_all_interactions: true
+  # Registrar guardrails ativados
+  log_triggered_guardrails: true
+  # Reter logs por N dias
+  log_retention_days: 365

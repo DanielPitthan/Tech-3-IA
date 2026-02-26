@@ -1,0 +1,81 @@
+[tool.poetry]
+name = "medical-assistant"
+version = "1.0.0"
+description = "Assistente Virtual Médico com Fine-Tuning de LLM, LangChain e LangGraph"
+authors = ["FIAP Tech Challenge Team"]
+readme = "README.md"
+license = "MIT"
+packages = [{include = "medical_assistant"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+# Core ML / Fine-tuning
+torch = "^2.2"
+transformers = "^4.40"
+peft = "^0.10"
+bitsandbytes = "^0.43"
+accelerate = "^0.30"
+datasets = "^2.19"
+trl = "^0.8"
+sentencepiece = "^0.2"
+einops = "^0.8"
+
+# LangChain / LangGraph
+langchain = "^0.2"
+langchain-community = "^0.2"
+langchain-huggingface = "^0.0.3"
+langgraph = "^0.1"
+
+# Vector Store & Embeddings
+chromadb = "^0.5"
+sentence-transformers = "^2.7"
+
+# CLI
+typer = {extras = ["all"], version = "^0.12"}
+rich = "^13.7"
+
+# API (optional)
+fastapi = "^0.111"
+uvicorn = "^0.29"
+
+# Evaluation
+scikit-learn = "^1.4"
+openai = "^1.30"
+
+# Data & Utils
+pandas = "^2.2"
+pyyaml = "^6.0"
+python-dotenv = "^1.0"
+faker = "^25.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2"
+pytest-cov = "^5.0"
+pytest-asyncio = "^0.23"
+ruff = "^0.4"
+mypy = "^1.10"
+
+[tool.poetry.scripts]
+medassist = "medical_assistant.interfaces.cli.main:app"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

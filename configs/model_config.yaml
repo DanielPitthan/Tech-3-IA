@@ -1,0 +1,29 @@
+# Configuração do Modelo Base
+model:
+  name: "tiiuae/falcon-7b-instruct"
+  revision: "main"
+  trust_remote_code: true
+  torch_dtype: "float16"
+
+# Configuração de Quantização (BitsAndBytes)
+quantization:
+  load_in_4bit: true
+  bnb_4bit_quant_type: "nf4"
+  bnb_4bit_compute_dtype: "float16"
+  bnb_4bit_use_double_quant: true
+
+# Configuração de Geração (Inferência)
+generation:
+  max_new_tokens: 512
+  temperature: 0.3
+  top_p: 0.9
+  top_k: 50
+  repetition_penalty: 1.15
+  do_sample: true
+
+# Tokenizer
+tokenizer:
+  max_length: 1024
+  padding: "max_length"
+  truncation: true
+  padding_side: "right"

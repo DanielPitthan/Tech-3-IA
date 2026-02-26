@@ -1,0 +1,41 @@
+# Configuração QLoRA para Fine-Tuning do Falcon-7B
+# Hardware alvo: GPU local 8-12GB VRAM (ex: RTX 3060)
+
+lora:
+  r: 16                          # Rank da decomposição LoRA
+  lora_alpha: 32                 # Fator de escala (alpha/r = 2)
+  lora_dropout: 0.05             # Dropout nas camadas LoRA
+  bias: "none"                   # Sem bias nas camadas LoRA
+  task_type: "CAUSAL_LM"         # Tipo de tarefa
+  target_modules:                # Módulos alvo do Falcon
+    - "query_key_value"
+    - "dense"
+    - "dense_h_to_4h"
+    - "dense_4h_to_h"
+
+training:
+  output_dir: "./models/falcon-7b-medical"
+  num_train_epochs: 3
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size: 4
+  gradient_accumulation_steps: 4   # Effective batch = 16
+  learning_rate: 2.0e-4
+  weight_decay: 0.01
+  warmup_ratio: 0.03
+  lr_scheduler_type: "cosine"
+  optim: "paged_adamw_8bit"       # Otimizador paginado para economia de VRAM
+  fp16: true
+  bf16: false
+  max_grad_norm: 0.3
+  logging_steps: 10
+  save_strategy: "epoch"
+  evaluation_strategy: "epoch"
+  save_total_limit: 2
+  load_best_model_at_end: true
+  report_to: "none"               # Usar "wandb" se configurado
+  seed: 42
+
+sft:
+  max_seq_length: 1024
+  packing: false                   # Desabilitado para simplicidade
+  dataset_text_field: "text"       # Campo do dataset formatado
