@@ -1,16 +1,9 @@
-# Configuração do Modelo Base
+# Configuração do Modelo Base (Llama 3.1-8B-Instruct)
 model:
-  name: "tiiuae/falcon-7b-instruct"
-  revision: "main"
-  trust_remote_code: true
-  torch_dtype: "float16"
-
-# Configuração de Quantização (BitsAndBytes)
-quantization:
-  load_in_4bit: true
-  bnb_4bit_quant_type: "nf4"
-  bnb_4bit_compute_dtype: "float16"
-  bnb_4bit_use_double_quant: true
+  name: "meta-llama/Llama-3.1-8B-Instruct"
+  provider: "ollama"
+  base_url: "http://localhost:11434"
+  trust_remote_code: false
 
 # Configuração de Geração (Inferência)
 generation:
@@ -19,11 +12,10 @@ generation:
   top_p: 0.9
   top_k: 50
   repetition_penalty: 1.15
-  do_sample: true
 
-# Tokenizer
+# Tokenizer (não usado diretamente com Ollama, mantido para compatibilidade)
 tokenizer:
-  max_length: 1024
+  max_length: 4096
   padding: "max_length"
   truncation: true
   padding_side: "right"

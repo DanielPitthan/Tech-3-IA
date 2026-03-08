@@ -8,8 +8,12 @@ fornece busca por similaridade para o pipeline RAG.
 from __future__ import annotations
 
 import logging
+import os
 from pathlib import Path
 from typing import Any
+
+# Desabilitar telemetry ANTES de importar chromadb (PostHog incompatível)
+os.environ["ANONYMIZED_TELEMETRY"] = "False"
 
 import chromadb
 from chromadb.config import Settings as ChromaSettings

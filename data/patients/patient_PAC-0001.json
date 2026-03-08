@@ -1,0 +1,63 @@
+{
+  "id": "PAC-0001",
+  "nome_anonimizado": "[PACIENTE_0001]",
+  "nome_ficticio": "Théo Duarte",
+  "idade": 22,
+  "sexo": "M",
+  "setor": "Pronto-Socorro",
+  "diagnosticos": [
+    "Hipotireoidismo",
+    "Gastrite Crônica"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Insulina NPH",
+      "dose": "10UI",
+      "via": "subcutânea",
+      "freq": "2x/dia"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "Creatinina Sérica",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-19",
+      "resultado": null
+    },
+    {
+      "nome": "Tomografia de Tórax",
+      "tipo": "imagem",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-17",
+      "resultado": null
+    },
+    {
+      "nome": "Urina Tipo I",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-16",
+      "resultado": null
+    },
+    {
+      "nome": "Sódio Sérico",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-07",
+      "resultado": "Resultado dentro dos parâmetros normais"
+    }
+  ],
+  "alergias": [
+    "Dipirona"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 173,
+    "pa_diastolica": 71,
+    "fc": 103,
+    "fr": 14,
+    "temperatura": 35.7,
+    "spo2": 88
+  },
+  "queixa_principal": "Ganho de peso, fadiga e constipação",
+  "data_admissao": "2026-03-02"
+}

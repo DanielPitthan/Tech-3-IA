@@ -1,5 +1,5 @@
 """
-Adapter do modelo Falcon-7B para inferência.
+Adapter do modelo Llama 3.1-8B-Instruct para inferência via HuggingFace.
 
 Implementa a interface LLMService para integração com LangChain
 e o restante da aplicação. Carrega o modelo base + adapter LoRA
@@ -9,6 +9,7 @@ para geração de respostas.
 from __future__ import annotations
 
 import logging
+import os
 from pathlib import Path
 from typing import Any
 
@@ -29,9 +30,9 @@ from medical_assistant.infrastructure.llm.model_config import ModelConfig
 logger = logging.getLogger(__name__)
 
 
-class FalconModelAdapter(LLMService):
+class Llama3ModelAdapter(LLMService):
     """
-    Adapter para o modelo Falcon-7B fine-tunado.
+    Adapter para o modelo Llama 3.1-8B-Instruct fine-tunado.
 
     Carrega o modelo base com quantização 4-bit e o adapter LoRA
     treinado com dados médicos. Fornece interface unificada para
@@ -71,12 +72,20 @@ class FalconModelAdapter(LLMService):
         torch_dtype = dtype_map.get(self.config.torch_dtype, torch.float16)
 
         # Tokenizer
+        hf_token = os.getenv("HF_TOKEN")
         self.tokenizer = AutoTokenizer.from_pretrained(
             self.config.model_name,
             trust_remote_code=self.config.trust_remote_code,
+            token=hf_token,
         )
         if self.tokenizer.pad_token is None:
-            self.tokenizer.pad_token = self.tokenizer.eos_token
+            if "<|finetune_right_pad_id|>" in self.tokenizer.get_vocab():
+                self.tokenizer.pad_token = "<|finetune_right_pad_id|>"
+            else:
+                self.tokenizer.pad_token = self.tokenizer.eos_token
+            self.tokenizer.pad_token_id = self.tokenizer.convert_tokens_to_ids(
+                self.tokenizer.pad_token
+            )
 
         # Modelo base
         self.model = AutoModelForCausalLM.from_pretrained(
@@ -85,7 +94,13 @@ class FalconModelAdapter(LLMService):
             device_map="auto",
             trust_remote_code=self.config.trust_remote_code,
             torch_dtype=torch_dtype,
+            token=hf_token,
         )
+
+        # Sincronizar pad_token_id com model config e generation config
+        self.model.config.pad_token_id = self.tokenizer.pad_token_id
+        if hasattr(self.model, "generation_config"):
+            self.model.generation_config.pad_token_id = self.tokenizer.pad_token_id
 
         # Carregar adapter LoRA se disponível
         if self.adapter_path and self.adapter_path.exists():

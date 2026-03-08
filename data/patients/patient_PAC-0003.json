@@ -1,0 +1,57 @@
+{
+  "id": "PAC-0003",
+  "nome_anonimizado": "[PACIENTE_0003]",
+  "nome_ficticio": "Letícia da Costa",
+  "idade": 52,
+  "sexo": "M",
+  "setor": "Enfermaria Clínica",
+  "diagnosticos": [
+    "Fibrilação Atrial",
+    "Infecção do Trato Urinário"
+  ],
+  "medicamentos_em_uso": [],
+  "exames": [
+    {
+      "nome": "PCR",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-03-04",
+      "resultado": null
+    },
+    {
+      "nome": "Hemograma Completo",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-10",
+      "resultado": null
+    },
+    {
+      "nome": "HbA1c",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-05",
+      "resultado": null
+    },
+    {
+      "nome": "T4 Livre",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-08",
+      "resultado": null
+    }
+  ],
+  "alergias": [
+    "Látex",
+    "Penicilina"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 179,
+    "pa_diastolica": 64,
+    "fc": 72,
+    "fr": 20,
+    "temperatura": 38.7,
+    "spo2": 99
+  },
+  "queixa_principal": "Palpitações e desconforto torácico",
+  "data_admissao": "2026-02-22"
+}

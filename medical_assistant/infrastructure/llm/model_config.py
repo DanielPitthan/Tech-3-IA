@@ -1,8 +1,9 @@
 """
-Configurações do modelo Falcon-7B para fine-tuning e inferência.
+Configurações do modelo LLM para inferência e fine-tuning.
 
-Centraliza todos os parâmetros de modelo, quantização e geração,
+Centraliza todos os parâmetros de modelo e geração,
 carregando de configs/model_config.yaml e configs/qlora_config.yaml.
+Suporta Ollama (Llama 3) e HuggingFace (Llama 3.1-8B-Instruct).
 """
 
 from __future__ import annotations
@@ -45,7 +46,7 @@ class LoraConfig:
     bias: str = "none"
     task_type: str = "CAUSAL_LM"
     target_modules: list[str] = field(
-        default_factory=lambda: ["query_key_value", "dense", "dense_h_to_4h", "dense_4h_to_h"]
+        default_factory=lambda: ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
     )
 
 
@@ -53,11 +54,11 @@ class LoraConfig:
 class TrainingConfig:
     """Configuração de treinamento."""
 
-    output_dir: str = "./models/falcon-7b-medical"
+    output_dir: str = "./models/llama3-medical"
     num_train_epochs: int = 3
-    per_device_train_batch_size: int = 4
-    per_device_eval_batch_size: int = 4
-    gradient_accumulation_steps: int = 4
+    per_device_train_batch_size: int = 1
+    per_device_eval_batch_size: int = 1
+    gradient_accumulation_steps: int = 16
     learning_rate: float = 2e-4
     weight_decay: float = 0.01
     warmup_ratio: float = 0.03
@@ -68,11 +69,15 @@ class TrainingConfig:
     max_grad_norm: float = 0.3
     logging_steps: int = 10
     save_strategy: str = "epoch"
-    evaluation_strategy: str = "epoch"
+    eval_strategy: str = "epoch"
     save_total_limit: int = 2
     load_best_model_at_end: bool = True
     report_to: str = "none"
     seed: int = 42
+    gradient_checkpointing: bool = True
+    gradient_checkpointing_kwargs: dict = field(
+        default_factory=lambda: {"use_reentrant": False}
+    )
 
 
 @dataclass
@@ -91,7 +96,7 @@ class GenerationConfig:
 class SFTConfig:
     """Configuração do SFTTrainer."""
 
-    max_seq_length: int = 1024
+    max_seq_length: int = 512
     packing: bool = False
     dataset_text_field: str = "text"
 
@@ -101,9 +106,11 @@ class ModelConfig:
     """Configuração completa do modelo."""
 
     # Modelo base
-    model_name: str = "tiiuae/falcon-7b-instruct"
+    model_name: str = "meta-llama/Meta-Llama-3.1-8B-Instruct"
+    provider: str = "ollama"
+    base_url: str = "http://localhost:11434"
     revision: str = "main"
-    trust_remote_code: bool = True
+    trust_remote_code: bool = False
     torch_dtype: str = "float16"
 
     # Sub-configurações
@@ -136,6 +143,8 @@ class ModelConfig:
             # Modelo base
             model_section = model_cfg.get("model", {})
             config.model_name = model_section.get("name", config.model_name)
+            config.provider = model_section.get("provider", config.provider)
+            config.base_url = model_section.get("base_url", config.base_url)
             config.revision = model_section.get("revision", config.revision)
             config.trust_remote_code = model_section.get("trust_remote_code", config.trust_remote_code)
             config.torch_dtype = model_section.get("torch_dtype", config.torch_dtype)

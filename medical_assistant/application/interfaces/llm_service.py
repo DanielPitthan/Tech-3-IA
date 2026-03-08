@@ -2,7 +2,7 @@
 Interface abstrata para serviço de LLM.
 
 Define o contrato que qualquer implementação de modelo
-(Falcon, LLaMA, API externa) deve seguir.
+(Llama 3, Ollama, API externa) deve seguir.
 """
 
 from __future__ import annotations

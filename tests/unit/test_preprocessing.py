@@ -8,6 +8,7 @@ import tempfile
 
 import pytest
 
+from medical_assistant.data.preprocessing.dataset_splitter import load_test_ids, split_dataset
 from medical_assistant.evaluation.metrics import extract_answer_label
 
 
@@ -55,3 +56,44 @@ class TestFormatConverter:
             assert loaded[1]["output"] == "A2"
         finally:
             os.unlink(path)
+
+
+class TestDatasetSplitter:
+    """Testes para split com ground truth fixo."""
+
+    def test_load_test_ids(self):
+        """Carrega IDs de teste a partir de JSON de ground truth."""
+        payload = {"1001": "yes", "1002": "no", "1003": "maybe"}
+
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".json", delete=False, encoding="utf-8"
+        ) as f:
+            json.dump(payload, f)
+            path = f.name
+
+        try:
+            test_ids = load_test_ids(path)
+            assert test_ids == {"1001", "1002", "1003"}
+        finally:
+            os.unlink(path)
+
+    def test_split_respects_ground_truth_ids(self):
+        """Garante que IDs do ground truth entrem no conjunto de teste."""
+        samples = [
+            {"pmid": "1001", "label": "yes", "instruction": "i", "input": "x", "output": "o"},
+            {"pmid": "1002", "label": "no", "instruction": "i", "input": "x", "output": "o"},
+            {"pmid": "1003", "label": "maybe", "instruction": "i", "input": "x", "output": "o"},
+            {"pmid": "1004", "label": "yes", "instruction": "i", "input": "x", "output": "o"},
+            {"pmid": "1005", "label": "no", "instruction": "i", "input": "x", "output": "o"},
+            {"pmid": "1006", "label": "maybe", "instruction": "i", "input": "x", "output": "o"},
+        ]
+
+        splits = split_dataset(samples, test_ids={"1002", "1005"}, val_ratio=0.5, seed=123)
+
+        test_pmids = {item["pmid"] for item in splits["test"]}
+        train_pmids = {item["pmid"] for item in splits["train"]}
+        val_pmids = {item["pmid"] for item in splits["val"]}
+
+        assert test_pmids == {"1002", "1005"}
+        assert test_pmids.isdisjoint(train_pmids)
+        assert test_pmids.isdisjoint(val_pmids)

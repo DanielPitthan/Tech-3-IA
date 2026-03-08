@@ -1,0 +1,46 @@
+# MedAssist — Dependências
+# Instale com: pip install -r requirements.txt
+
+# Core ML / Fine-tuning
+# IMPORTANTE: PyTorch deve ser instalado com suporte CUDA.
+# Instale separadamente ANTES das demais dependências:
+#   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+# Ajuste cu128 para sua versão CUDA (cu126, cu124, cu118).
+# NÃO use 'pip install torch' direto — isso instala a versão CPU.
+torch>=2.2,<3.0
+transformers>=4.40,<5.0
+peft>=0.10,<1.0
+bitsandbytes>=0.43,<1.0
+accelerate>=1.0,<2.0
+datasets>=2.19,<3.0
+trl>=0.15,<1.0
+sentencepiece>=0.2,<1.0
+einops>=0.8,<1.0
+
+# LangChain / LangGraph
+langchain>=0.2,<1.0
+langchain-community>=0.2,<1.0
+langchain-huggingface>=0.0.3,<1.0
+langchain-ollama>=0.2,<1.0
+langgraph>=0.1,<1.0
+
+# Vector Store & Embeddings
+chromadb>=0.5,<1.0
+sentence-transformers>=2.7,<3.0
+
+# CLI
+rich>=13.7,<14.0
+
+# API (optional)
+fastapi>=0.111,<1.0
+uvicorn>=0.29,<1.0
+
+# Evaluation
+scikit-learn>=1.4,<2.0
+openai>=1.30,<2.0
+
+# Data & Utils
+pandas>=2.2,<3.0
+pyyaml>=6.0,<7.0
+python-dotenv>=1.0,<2.0
+faker>=25.0,<26.0

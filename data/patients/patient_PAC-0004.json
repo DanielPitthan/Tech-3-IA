@@ -1,0 +1,95 @@
+{
+  "id": "PAC-0004",
+  "nome_anonimizado": "[PACIENTE_0004]",
+  "nome_ficticio": "Eloá Castro",
+  "idade": 27,
+  "sexo": "M",
+  "setor": "UTI",
+  "diagnosticos": [
+    "Hipertensão Arterial Sistêmica",
+    "Trombose Venosa Profunda"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Enalapril",
+      "dose": "10mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Levotiroxina",
+      "dose": "75mcg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Furosemida",
+      "dose": "40mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Amoxicilina",
+      "dose": "500mg",
+      "via": "oral",
+      "freq": "8/8h"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "INR",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-09",
+      "resultado": "1.38"
+    },
+    {
+      "nome": "Glicemia de Jejum",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-09",
+      "resultado": null
+    },
+    {
+      "nome": "Hemograma Completo",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-21",
+      "resultado": null
+    },
+    {
+      "nome": "Urocultura",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-13",
+      "resultado": "Resultado dentro dos parâmetros normais"
+    },
+    {
+      "nome": "ECG",
+      "tipo": "cardiológico",
+      "status": "realizado",
+      "data_solicitacao": "2026-03-02",
+      "resultado": null
+    },
+    {
+      "nome": "TGO/TGP",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-26",
+      "resultado": null
+    }
+  ],
+  "alergias": [
+    "Nenhuma alergia conhecida"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 126,
+    "pa_diastolica": 67,
+    "fc": 86,
+    "fr": 22,
+    "temperatura": 35.8,
+    "spo2": 92
+  },
+  "queixa_principal": "Cefaleia e tontura há 3 dias",
+  "data_admissao": "2026-03-02"
+}

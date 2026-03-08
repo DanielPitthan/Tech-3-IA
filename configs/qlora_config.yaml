@@ -1,5 +1,5 @@
-# Configuração QLoRA para Fine-Tuning do Falcon-7B
-# Hardware alvo: GPU local 8-12GB VRAM (ex: RTX 3060)
+# Configuração QLoRA para Fine-Tuning do Llama 3.1-8B-Instruct
+# Hardware alvo: GPU local 8-12GB VRAM (ex: RTX 3060/4060)
 
 lora:
   r: 16                          # Rank da decomposição LoRA
@@ -7,18 +7,21 @@ lora:
   lora_dropout: 0.05             # Dropout nas camadas LoRA
   bias: "none"                   # Sem bias nas camadas LoRA
   task_type: "CAUSAL_LM"         # Tipo de tarefa
-  target_modules:                # Módulos alvo do Falcon
-    - "query_key_value"
-    - "dense"
-    - "dense_h_to_4h"
-    - "dense_4h_to_h"
+  target_modules:                # Módulos alvo do Llama 3.1
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
 
 training:
-  output_dir: "./models/falcon-7b-medical"
+  output_dir: "./models/llama3-medical"
   num_train_epochs: 3
-  per_device_train_batch_size: 4
-  per_device_eval_batch_size: 4
-  gradient_accumulation_steps: 4   # Effective batch = 16
+  per_device_train_batch_size: 1     # Reduzido para 6GB VRAM (RTX 4050)
+  per_device_eval_batch_size: 1     # Reduzido para 6GB VRAM
+  gradient_accumulation_steps: 16   # Effective batch = 16 (compensa batch_size=1)
   learning_rate: 2.0e-4
   weight_decay: 0.01
   warmup_ratio: 0.03
@@ -29,13 +32,16 @@ training:
   max_grad_norm: 0.3
   logging_steps: 10
   save_strategy: "epoch"
-  evaluation_strategy: "epoch"
+  eval_strategy: "epoch"
   save_total_limit: 2
   load_best_model_at_end: true
   report_to: "none"               # Usar "wandb" se configurado
   seed: 42
+  gradient_checkpointing: true
+  gradient_checkpointing_kwargs:
+    use_reentrant: false           # Requerido a partir do PyTorch 2.9
 
 sft:
-  max_seq_length: 1024
+  max_seq_length: 512              # Reduzido para 6GB VRAM (economiza memória de ativações)
   packing: false                   # Desabilitado para simplicidade
   dataset_text_field: "text"       # Campo do dataset formatado

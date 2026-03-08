@@ -1,0 +1,94 @@
+{
+  "id": "PAC-0005",
+  "nome_anonimizado": "[PACIENTE_0005]",
+  "nome_ficticio": "Francisco Rezende",
+  "idade": 63,
+  "sexo": "F",
+  "setor": "Unidade Coronariana",
+  "diagnosticos": [
+    "Asma Brônquica"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Insulina NPH",
+      "dose": "10UI",
+      "via": "subcutânea",
+      "freq": "2x/dia"
+    },
+    {
+      "nome": "Prednisona",
+      "dose": "20mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Sinvastatina",
+      "dose": "20mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Omeprazol",
+      "dose": "20mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "ECG",
+      "tipo": "cardiológico",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-05",
+      "resultado": null
+    },
+    {
+      "nome": "INR",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-03-07",
+      "resultado": null
+    },
+    {
+      "nome": "Glicemia de Jejum",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-05",
+      "resultado": null
+    },
+    {
+      "nome": "Urocultura",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-12",
+      "resultado": null
+    },
+    {
+      "nome": "TSH",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-03-07",
+      "resultado": "14.37 mUI/L"
+    },
+    {
+      "nome": "PCR",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-25",
+      "resultado": "9.8 mg/L"
+    }
+  ],
+  "alergias": [
+    "Nenhuma alergia conhecida"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 142,
+    "pa_diastolica": 73,
+    "fc": 115,
+    "fr": 15,
+    "temperatura": 38.6,
+    "spo2": 97
+  },
+  "queixa_principal": "Crises de broncoespasmo e tosse noturna",
+  "data_admissao": "2026-02-26"
+}

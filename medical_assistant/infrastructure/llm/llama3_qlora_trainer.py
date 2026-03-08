@@ -1,17 +1,18 @@
 """
-Pipeline de fine-tuning do Falcon-7B com QLoRA.
+Pipeline de fine-tuning do Llama 3.1-8B-Instruct com QLoRA.
 
 Utiliza BitsAndBytes para quantização 4-bit (NF4),
 PEFT/LoRA para adaptação eficiente de parâmetros,
 e TRL SFTTrainer para Supervised Fine-Tuning.
 
-Hardware alvo: GPU local com 8-12GB VRAM (ex: RTX 3060).
+Hardware alvo: GPU local com 8-12GB VRAM (ex: RTX 3060/4060).
 """
 
 from __future__ import annotations
 
 import json
 import logging
+import os
 from pathlib import Path
 from typing import Any
 
@@ -22,18 +23,17 @@ from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
     BitsAndBytesConfig,
-    TrainingArguments,
 )
-from trl import SFTTrainer
+from trl import SFTConfig, SFTTrainer
 
 from medical_assistant.infrastructure.llm.model_config import ModelConfig
 
 logger = logging.getLogger(__name__)
 
 
-class FalconQLoRATrainer:
+class Llama3QLoRATrainer:
     """
-    Pipeline completo de fine-tuning do Falcon-7B com QLoRA.
+    Pipeline completo de fine-tuning do Llama 3.1-8B-Instruct com QLoRA.
 
     Etapas:
     1. Carrega modelo com quantização 4-bit (BitsAndBytes)
@@ -59,7 +59,7 @@ class FalconQLoRATrainer:
         """
         Carrega o modelo base com quantização 4-bit e o tokenizer.
 
-        O modelo Falcon-7B-Instruct ocupa ~3.5GB em 4-bit NF4,
+        O modelo Llama 3.1-8B-Instruct ocupa ~5GB em 4-bit NF4,
         permitindo fine-tuning em GPUs com 8-12GB VRAM.
         """
         logger.info("Carregando modelo: %s", self.config.model_name)
@@ -69,16 +69,23 @@ class FalconQLoRATrainer:
         bnb_config = BitsAndBytesConfig(**self.config.get_bnb_config_dict())
 
         # Carregar tokenizer
+        hf_token = os.getenv("HF_TOKEN")
         self.tokenizer = AutoTokenizer.from_pretrained(
             self.config.model_name,
             trust_remote_code=self.config.trust_remote_code,
             padding_side="right",
+            token=hf_token,
         )
 
-        # Definir pad token (Falcon não tem por padrão)
+        # Definir pad token — Llama 3.1 possui token dedicado para padding
         if self.tokenizer.pad_token is None:
-            self.tokenizer.pad_token = self.tokenizer.eos_token
-            self.tokenizer.pad_token_id = self.tokenizer.eos_token_id
+            if "<|finetune_right_pad_id|>" in self.tokenizer.get_vocab():
+                self.tokenizer.pad_token = "<|finetune_right_pad_id|>"
+            else:
+                self.tokenizer.pad_token = self.tokenizer.eos_token
+            self.tokenizer.pad_token_id = self.tokenizer.convert_tokens_to_ids(
+                self.tokenizer.pad_token
+            )
 
         # Carregar modelo quantizado
         dtype_map = {"float16": torch.float16, "bfloat16": torch.bfloat16}
@@ -87,16 +94,26 @@ class FalconQLoRATrainer:
         self.model = AutoModelForCausalLM.from_pretrained(
             self.config.model_name,
             quantization_config=bnb_config,
-            device_map="auto",
+            device_map={"": 0},
             trust_remote_code=self.config.trust_remote_code,
             torch_dtype=torch_dtype,
+            token=hf_token,
         )
+
+        # Sincronizar pad_token_id com model config e generation config
+        self.model.config.pad_token_id = self.tokenizer.pad_token_id
+        if hasattr(self.model, "generation_config"):
+            self.model.generation_config.pad_token_id = self.tokenizer.pad_token_id
 
         # Desabilitar cache para treinamento
         self.model.config.use_cache = False
 
-        # Preparar para treinamento k-bit
-        self.model = prepare_model_for_kbit_training(self.model)
+        # Preparar para treinamento k-bit (com use_reentrant=False para PyTorch >=2.9)
+        self.model = prepare_model_for_kbit_training(
+            self.model,
+            use_gradient_checkpointing=True,
+            gradient_checkpointing_kwargs={"use_reentrant": False},
+        )
 
         logger.info("Modelo carregado com sucesso. Parâmetros totais: %s", _count_params(self.model))
 
@@ -159,9 +176,24 @@ class FalconQLoRATrainer:
         if self.model is None or self.tokenizer is None:
             raise RuntimeError("Modelo/tokenizer não carregados.")
 
-        # Training Arguments
+        # Training Arguments (SFTConfig extends TrainingArguments with SFT params)
         training_args_dict = self.config.get_training_args_dict()
-        training_args = TrainingArguments(**training_args_dict)
+        training_args_dict["max_seq_length"] = self.config.sft.max_seq_length
+        training_args_dict["packing"] = self.config.sft.packing
+        training_args_dict["dataset_text_field"] = self.config.sft.dataset_text_field
+        training_args = SFTConfig(**training_args_dict)
+
+        # Remover colunas extras que não são usadas pelo SFTTrainer
+        # (ex: 'label' é string e causa erro ao tentar criar tensores)
+        text_field = self.config.sft.dataset_text_field
+        keep_cols = {text_field}
+        train_dataset = train_dataset.select_columns(
+            [c for c in train_dataset.column_names if c in keep_cols]
+        )
+        if val_dataset is not None:
+            val_dataset = val_dataset.select_columns(
+                [c for c in val_dataset.column_names if c in keep_cols]
+            )
 
         # SFT Trainer
         self.trainer = SFTTrainer(
@@ -170,9 +202,6 @@ class FalconQLoRATrainer:
             train_dataset=train_dataset,
             eval_dataset=val_dataset,
             args=training_args,
-            max_seq_length=self.config.sft.max_seq_length,
-            packing=self.config.sft.packing,
-            dataset_text_field=self.config.sft.dataset_text_field,
         )
 
         logger.info("Iniciando fine-tuning...")
@@ -201,7 +230,7 @@ class FalconQLoRATrainer:
         """
         Salva apenas o adapter LoRA (não o modelo base completo).
 
-        O adapter LoRA tem ~50-100MB vs ~14GB do modelo completo.
+        O adapter LoRA tem ~50-100MB vs ~16GB do modelo completo.
         Para inferência, carrega-se o modelo base + adapter.
         """
         output_dir = Path(output_dir or self.config.training.output_dir)
@@ -256,7 +285,7 @@ class FalconQLoRATrainer:
             Caminho do diretório com o modelo salvo
         """
         logger.info("=" * 60)
-        logger.info("PIPELINE DE FINE-TUNING - Falcon-7B QLoRA")
+        logger.info("PIPELINE DE FINE-TUNING - Llama 3.1-8B QLoRA")
         logger.info("=" * 60)
 
         # 1. Carregar modelo

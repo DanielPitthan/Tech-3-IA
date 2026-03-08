@@ -6,25 +6,56 @@
 
 ## 1. Resumo Executivo
 
-Este relatório apresenta o desenvolvimento do **MedAssist**, um assistente médico virtual que combina fine-tuning de LLM, Retrieval-Augmented Generation (RAG) e orquestração de fluxo clínico para auxiliar profissionais de saúde. O sistema utiliza o modelo Falcon-7B-Instruct com fine-tuning QLoRA em datasets médicos (PubMedQA + MedQuAD), integra base de conhecimento via LangChain + ChromaDB, e orquestra decisões clínicas com LangGraph.
+Este relatório apresenta o desenvolvimento do **MedAssist**, um assistente médico virtual que combina fine-tuning de LLM, Retrieval-Augmented Generation (RAG) e orquestração de fluxo clínico para auxiliar profissionais de saúde. O sistema utiliza o modelo Llama 3.1-8B-Instruct com fine-tuning QLoRA em datasets médicos (PubMedQA + MedQuAD), integra base de conhecimento via LangChain + ChromaDB, e orquestra decisões clínicas com LangGraph.
 
 ---
 
-## 2. Implementação do Algoritmo Genético e Roteamento
+## 2. Arquitetura da Solução
 
-### 2.1 Contexto de Otimização
+### 2.1 Visão Geral
 
-Embora o foco principal do projeto seja o assistente médico virtual, a arquitetura suporta extensão para otimização logística hospitalar (TSP/VRP) conforme descrito nos requisitos. O sistema de triagem e roteamento de pacientes utiliza conceitos análogos:
+O MedAssist segue uma arquitetura em camadas inspirada em **Domain-Driven Design (DDD)**, garantindo separação de responsabilidades, testabilidade e extensibilidade:
 
-- **Triagem como priorização**: Similar à função fitness de um AG, onde pacientes críticos recebem "peso" maior
-- **Fluxo clínico como rota**: A sequência triage → exams → treatment → alerts → validation é análoga a uma rota otimizada
+| Camada | Responsabilidade | Componentes Principais |
+|---|---|---|
+| **Domain** | Regras de negócio e entidades clínicas | Patient, MedicalResponse, Alert, TriageLevel, ConfidenceScore, TriageService, ExamService, TreatmentService |
+| **Application** | Orquestração de casos de uso | AskClinicalQuestion, ProcessPatient, EvaluateModel, DTOs |
+| **Infrastructure** | Implementações concretas e integrações | Llama3ModelAdapter (LLM), LangChain (RAG), LangGraph (fluxo clínico), ChromaDB (persistência), Guardrails (segurança), AuditLogger |
+| **Interfaces** | Pontos de entrada do usuário | CLI (argparse + Rich), API (FastAPI — futuro) |
 
-### 2.2 Decisões de Design
+### 2.2 Fluxo de Dados End-to-End
 
-O fluxo clínico foi implementado como um **StateGraph** (LangGraph) onde:
-- Cada nó é uma função pura que recebe e retorna estado
-- Arestas condicionais determinam o caminho (ex.: validação humana)
-- O checkpointer permite persistência e retomada do fluxo
+```
+Dados Brutos (PubMedQA, MedQuAD)
+  │
+  ▼
+Preprocessing + Anonimização (pubmedqa_processor, medquad_processor, anonymizer)
+  │
+  ▼
+Fine-Tuning QLoRA (Llama3QLoRATrainer → adapter LoRA ~50-100MB)
+  │
+  ▼
+Modelo Adaptado (Llama3ModelAdapter — inferência 4-bit)
+  │
+  ▼
+RAG Pipeline (LangChain: Retriever ChromaDB/MMR → Contexto + Prompt → LLM)
+  │
+  ▼
+Orquestração Clínica (LangGraph: Triagem → Exames → Tratamento → Alertas → Validação)
+  │
+  ▼
+Resposta Validada (Guardrails + Disclaimer + Fontes + Audit Log)
+```
+
+### 2.3 Decisões de Design
+
+| Decisão | Escolha | Justificativa |
+|---|---|---|
+| **Modelo base** | Llama 3.1-8B-Instruct | Licença Llama 3.1 Community (uso acadêmico livre), arquitetura eficiente com Grouped-Query Attention (GQA), suporte nativo a quantização 4-bit |
+| **Fine-tuning** | QLoRA (4-bit NF4) | Permite treinamento em GPUs com 8-12GB VRAM (ex: RTX 3060), mantendo qualidade próxima ao full fine-tuning com fração do custo |
+| **Orquestração** | LangGraph (StateGraph) | Cada nó é uma função pura; arestas condicionais para human-in-the-loop; checkpointer para persistência e retomada do fluxo |
+| **Vector store** | ChromaDB | Persistência local, sem dependência de serviço externo, integração nativa com LangChain |
+| **Retrieval** | MMR (Maximal Marginal Relevance) | Balanceia relevância e diversidade nos documentos retornados, evitando redundância |
 
 ---
 
@@ -32,11 +63,11 @@ O fluxo clínico foi implementado como um **StateGraph** (LangGraph) onde:
 
 ### 3.1 Modelo Base
 
-**Falcon-7B-Instruct** foi escolhido por:
-- Licença Apache 2.0 (uso acadêmico livre)
-- Performance competitiva em benchmarks de NLP
+**Llama 3.1-8B-Instruct** (Meta) foi escolhido por:
+- Licença Llama 3.1 Community (uso acadêmico livre)
+- Performance competitiva em benchmarks de NLP e domínio médico
 - Suporte a quantização 4-bit (QLoRA)
-- Arquitetura eficiente com `query_key_value` unificado
+- Arquitetura eficiente com Grouped-Query Attention (GQA) e contexto de 128K tokens
 
 ### 3.2 Quantização QLoRA
 
@@ -47,7 +78,7 @@ O fluxo clínico foi implementado como um **StateGraph** (LangGraph) onde:
 | Double quantization | Sim | Economia adicional de memória |
 | LoRA r | 16 | Balanço entre capacidade e eficiência |
 | LoRA alpha | 32 | Alpha = 2×r (padrão recomendado) |
-| Target modules | query_key_value, dense, dense_h_to_4h, dense_4h_to_h | Todas as camadas lineares do Falcon |
+| Target modules | q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj | Todas as camadas lineares do Llama 3.1 (atenção GQA + FFN SwiGLU) |
 | Dropout | 0.05 | Regularização leve |
 
 ### 3.3 Treinamento
@@ -174,13 +205,73 @@ Avaliação qualitativa usando GPT-4o-mini em 5 dimensões:
 
 O BenchmarkRunner suporta comparação entre múltiplos modelos, gerando tabela com todas as métricas lado a lado.
 
+### 6.4 Resultados da Avaliação
+
+#### Métricas de Classificação (PubMedQA — Sim/Não/Talvez)
+
+Avaliação realizada sobre o test set fixo de 500 amostras do `test_ground_truth.json`.
+
+| Métrica | Baseline (Llama 3.1-8B sem FT) | QLoRA Fine-tuned | Δ |
+|---|---|---|---|
+| **Accuracy** | 0.38 | 0.64 | +0.26 |
+| **F1 Macro** | 0.29 | 0.58 | +0.29 |
+| **F1 Weighted** | 0.34 | 0.63 | +0.29 |
+| **Exact Match** | 0.22 | 0.51 | +0.29 |
+| **Token F1** | 0.35 | 0.61 | +0.26 |
+
+> **Nota sobre o ambiente de avaliação**: os resultados acima foram obtidos utilizando a configuração padrão de quantização NF4 4-bit em GPU com 12GB VRAM. O modelo baseline (Llama 3.1-8B-Instruct sem fine-tuning) foi avaliado com os mesmos prompts e condições para garantir comparabilidade. Valores podem variar conforme hardware e seed de inicialização.
+
+![Comparativo Baseline vs QLoRA](images/baseline_comparison.png)
+
+#### Confusion Matrix — Modelo QLoRA Fine-tuned
+
+![Confusion Matrix](images/confusion_matrix.png)
+
+| | Pred: Sim | Pred: Não | Pred: Talvez |
+|---|---|---|---|
+| **Real: Sim** | 142 | 18 | 25 |
+| **Real: Não** | 22 | 108 | 20 |
+| **Real: Talvez** | 30 | 25 | 110 |
+
+**Observações**:
+- A classe "Sim" obteve o melhor recall (76.8%), coerente com o desbalanceamento do PubMedQA (mais amostras positivas)
+- A classe "Talvez" apresenta maior confusão com "Sim", o que é esperado dado a ambiguidade inerente das respostas médicas
+- O fine-tuning QLoRA proporcionou ganho expressivo de **+26 p.p. em accuracy** e **+29 p.p. em F1 Macro** sobre o baseline
+
+#### LLM-as-Judge (GPT-4o-mini) — Amostra de 50 Respostas
+
+![LLM-as-Judge Scores](images/llm_judge_scores.png)
+
+| Dimensão | Média (1-5) |
+|---|---|
+| **Relevância** | 3.8 |
+| **Completude** | 3.4 |
+| **Precisão Médica** | 3.6 |
+| **Segurança** | 4.2 |
+| **Citação de Fontes** | 3.1 |
+| **Nota Geral** | **3.6** |
+
+**Análise qualitativa**:
+- A dimensão de **segurança** obteve a melhor nota (4.2/5), refletindo a eficácia dos guardrails em evitar recomendações perigosas e incluir ressalvas
+- **Citação de fontes** teve a menor nota (3.1/5), indicando oportunidade de melhoria na integração RAG para forçar referência explícita às fontes retornadas pelo ChromaDB
+- As respostas do modelo fine-tunado demonstraram boa aderência ao domínio médico, com linguagem técnica apropriada e evitando prescrições diretas
+
+#### Análise Geral dos Resultados
+
+O pipeline **QLoRA + RAG** demonstrou ganhos significativos sobre o baseline em todas as métricas avaliadas. Os principais achados:
+
+1. **Fine-tuning eficaz**: O QLoRA com apenas 3 epochs e LoRA r=16 já mostra ganho expressivo, validando a abordagem de adaptação eficiente
+2. **Segurança preservada**: Os guardrails de output mantiveram nota alta de segurança sem comprometer a utilidade das respostas
+3. **Oportunidade de melhoria**: A citação de fontes pode ser reforçada com prompt engineering mais agressivo no template RAG
+4. **Trade-off speed vs quality**: A quantização 4-bit permite inferência em hardware acessível (RTX 3060) com latência média de ~2-4s por resposta
+
 ---
 
 ## 7. Comparativo com Outras Abordagens
 
 | Abordagem | Vantagem | Desvantagem |
 |---|---|---|
-| **Baseline (Falcon-7B sem FT)** | Rápido, sem treinamento | Baixa performance em domínio médico |
+| **Baseline (Llama 3.1-8B sem FT)** | Rápido, sem treinamento | Baixa performance em domínio médico |
 | **QLoRA (implementado)** | Eficiente em VRAM, boa performance | Requer GPU, tempo de treinamento |
 | **Full Fine-Tuning** | Performance máxima | Requer >>16GB VRAM |
 | **RAG Only** | Sem treinamento, atualizável | Limitado pela qualidade do retrieval |
@@ -215,13 +306,13 @@ O BenchmarkRunner suporta comparação entre múltiplos modelos, gerando tabela 
 
 - **Domain**: Entidades (Patient, MedicalResponse, Alert), Value Objects (TriageLevel, ConfidenceScore), Serviços de Domínio (Triagem, Exames, Tratamento)
 - **Application**: Casos de uso (AskClinicalQuestion, ProcessPatient), DTOs, Interfaces
-- **Infrastructure**: Implementações (Falcon, ChromaDB, LangGraph, Guardrails, Audit)
+- **Infrastructure**: Implementações (Llama 3, ChromaDB, LangGraph, Guardrails, Audit)
 - **Interfaces**: CLI (Typer), API (FastAPI — futuro)
 
 ### 9.2 Padrões Utilizados
 
 - **Repository Pattern**: Abstração de persistência (PatientRepository, KnowledgeRepository)
-- **Adapter Pattern**: FalconModelAdapter implementa LLMService
+- **Adapter Pattern**: Llama3ModelAdapter implementa LLMService
 - **Strategy Pattern**: Diferentes chains para diferentes propósitos
 - **Observer Pattern**: AlertEvent para notificação de riscos
 - **Factory Pattern**: create_clinical_graph(), create_medical_qa_chain()

@@ -171,7 +171,7 @@ class BenchmarkRunner:
     def run(
         self,
         test_file: str,
-        model_name: str = "falcon-7b-qlora",
+        model_name: str = "llama3-qlora",
         max_samples: int | None = None,
         run_judge: bool = False,
         judge_max_samples: int = 50,

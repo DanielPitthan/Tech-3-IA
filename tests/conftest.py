@@ -16,18 +16,18 @@ def sample_patient_data() -> dict[str, Any]:
     """Dados de paciente sintético para testes."""
     return {
         "id": "P001",
-        "nome": "João Silva",
+        "nome_anonimizado": "João Silva",
         "idade": 65,
         "sexo": "M",
         "queixa_principal": "Dor torácica intensa",
         "diagnosticos": ["Hipertensão", "Diabetes Tipo 2"],
         "medicamentos_em_uso": [
-            {"nome": "Metformina", "dose": "850mg", "frequencia": "2x/dia"},
-            {"nome": "Losartana", "dose": "50mg", "frequencia": "1x/dia"},
+            {"nome": "Metformina", "dose": "850mg", "freq": "2x/dia"},
+            {"nome": "Losartana", "dose": "50mg", "freq": "1x/dia"},
         ],
         "alergias": ["Penicilina"],
         "sinais_vitais": {
-            "pa_sistolica": 180,
+            "pa_sistolica": 185,
             "pa_diastolica": 110,
             "fc": 105,
             "fr": 22,
@@ -35,7 +35,7 @@ def sample_patient_data() -> dict[str, Any]:
             "spo2": 93,
         },
         "exames": [
-            {"nome": "Hemograma", "status": "concluido", "resultado": "Normal"},
+            {"nome": "Hemograma", "status": "resultado_disponivel", "resultado": "Normal"},
             {"nome": "ECG", "status": "pendente", "resultado": None},
             {"nome": "Troponina", "status": "pendente", "resultado": None},
         ],
@@ -47,7 +47,7 @@ def sample_patient_regular() -> dict[str, Any]:
     """Paciente com dados regulares (não-críticos)."""
     return {
         "id": "P002",
-        "nome": "Maria Souza",
+        "nome_anonimizado": "Maria Souza",
         "idade": 35,
         "sexo": "F",
         "queixa_principal": "Cefaleia leve",

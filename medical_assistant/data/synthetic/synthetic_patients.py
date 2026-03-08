@@ -251,6 +251,22 @@ def generate_synthetic_dataset(
     return patients
 
 
+class SyntheticPatientGenerator:
+    """Classe wrapper para geração de pacientes sintéticos."""
+
+    def __init__(self, seed: int = 42):
+        self.seed = seed
+
+    def generate_batch(self, count: int) -> list[dict[str, Any]]:
+        """Gera um lote de pacientes sintéticos."""
+        patients = []
+        for i in range(1, count + 1):
+            patient = generate_synthetic_patient(i, seed=self.seed)
+            patients.append(patient)
+        logger.info("Gerados %d pacientes sintéticos", len(patients))
+        return patients
+
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     BASE = Path(__file__).resolve().parents[3]

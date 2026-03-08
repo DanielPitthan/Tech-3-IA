@@ -18,7 +18,7 @@ class TestAnonymizer:
         text = "Paciente CPF 123.456.789-00 apresentou febre."
         result = anonymizer.anonymize(text)
         assert "123.456.789-00" not in result
-        assert "[CPF_REMOVIDO]" in result
+        assert "[CPF_ANONIMIZADO]" in result
 
     def test_phone_removal(self, anonymizer):
         text = "Contato: (11) 99876-5432"
