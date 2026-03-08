@@ -7,7 +7,8 @@ __pycache__/
 dist/
 build/
 *.egg
-
+*.env
+*.env.example
 # Virtual environment
 .venv/
 venv/
