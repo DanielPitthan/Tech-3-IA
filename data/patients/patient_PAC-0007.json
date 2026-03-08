@@ -1,0 +1,55 @@
+{
+  "id": "PAC-0007",
+  "nome_anonimizado": "[PACIENTE_0007]",
+  "nome_ficticio": "Gabrielly Guerra",
+  "idade": 26,
+  "sexo": "M",
+  "setor": "Unidade Coronariana",
+  "diagnosticos": [
+    "Asma Brônquica",
+    "Diabetes Mellitus Tipo 2"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Furosemida",
+      "dose": "40mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Warfarina",
+      "dose": "5mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "Glicemia de Jejum",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-22",
+      "resultado": null
+    },
+    {
+      "nome": "Potássio Sérico",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-03-07",
+      "resultado": "4.4 mEq/L"
+    }
+  ],
+  "alergias": [
+    "Nenhuma alergia conhecida"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 151,
+    "pa_diastolica": 99,
+    "fc": 61,
+    "fr": 25,
+    "temperatura": 38.3,
+    "spo2": 97
+  },
+  "queixa_principal": "Crises de broncoespasmo e tosse noturna",
+  "data_admissao": "2026-03-06"
+}

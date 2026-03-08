@@ -1,0 +1,80 @@
+{
+  "id": "PAC-0010",
+  "nome_anonimizado": "[PACIENTE_0010]",
+  "nome_ficticio": "Maria Laura da Luz",
+  "idade": 52,
+  "sexo": "F",
+  "setor": "Ambulatório",
+  "diagnosticos": [
+    "Depressão Maior"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Furosemida",
+      "dose": "40mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Insulina NPH",
+      "dose": "10UI",
+      "via": "subcutânea",
+      "freq": "2x/dia"
+    },
+    {
+      "nome": "Sinvastatina",
+      "dose": "20mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "AAS",
+      "dose": "100mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Losartana",
+      "dose": "50mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "TGO/TGP",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-22",
+      "resultado": null
+    },
+    {
+      "nome": "Ecocardiograma",
+      "tipo": "cardiológico",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-03-08",
+      "resultado": "Resultado dentro dos parâmetros normais"
+    },
+    {
+      "nome": "INR",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-08",
+      "resultado": "1.48"
+    }
+  ],
+  "alergias": [
+    "AINEs",
+    "Contraste Iodado"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 154,
+    "pa_diastolica": 98,
+    "fc": 58,
+    "fr": 18,
+    "temperatura": 35.5,
+    "spo2": 98
+  },
+  "queixa_principal": "Tristeza persistente e insônia há 2 meses",
+  "data_admissao": "2026-03-04"
+}

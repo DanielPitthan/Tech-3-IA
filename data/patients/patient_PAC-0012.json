@@ -1,0 +1,82 @@
+{
+  "id": "PAC-0012",
+  "nome_anonimizado": "[PACIENTE_0012]",
+  "nome_ficticio": "Rebeca Novais",
+  "idade": 35,
+  "sexo": "M",
+  "setor": "Ambulatório",
+  "diagnosticos": [
+    "Insuficiência Renal Crônica",
+    "Infecção do Trato Urinário"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Insulina NPH",
+      "dose": "10UI",
+      "via": "subcutânea",
+      "freq": "2x/dia"
+    },
+    {
+      "nome": "AAS",
+      "dose": "100mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Enalapril",
+      "dose": "10mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "PCR",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-21",
+      "resultado": null
+    },
+    {
+      "nome": "ECG",
+      "tipo": "cardiológico",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-22",
+      "resultado": "Resultado dentro dos parâmetros normais"
+    },
+    {
+      "nome": "TSH",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-15",
+      "resultado": null
+    },
+    {
+      "nome": "Raio-X de Tórax",
+      "tipo": "imagem",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-25",
+      "resultado": null
+    },
+    {
+      "nome": "Creatinina Sérica",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-03-08",
+      "resultado": null
+    }
+  ],
+  "alergias": [
+    "Nenhuma alergia conhecida"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 102,
+    "pa_diastolica": 70,
+    "fc": 72,
+    "fr": 24,
+    "temperatura": 36.5,
+    "spo2": 88
+  },
+  "queixa_principal": "Edema generalizado e oligúria",
+  "data_admissao": "2026-02-24"
+}

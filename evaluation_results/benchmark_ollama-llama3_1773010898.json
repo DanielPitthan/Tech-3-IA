@@ -1,0 +1,555 @@
+{
+  "model_name": "ollama-llama3",
+  "dataset_name": "data/processed/dataset_test.jsonl",
+  "samples_evaluated": 50,
+  "inference_time_seconds": 1587.81,
+  "avg_inference_time_per_sample": 31.756,
+  "exact_match": 0.0,
+  "token_f1": 0.0947,
+  "classification_metrics": {
+    "accuracy": 0.64,
+    "f1_macro": 0.3941,
+    "f1_weighted": 0.5719,
+    "precision_macro": 0.4873,
+    "recall_macro": 0.4286,
+    "confusion_matrix": [
+      [
+        26,
+        0,
+        0
+      ],
+      [
+        15,
+        6,
+        0
+      ],
+      [
+        2,
+        1,
+        0
+      ]
+    ],
+    "labels": [
+      "sim",
+      "não",
+      "talvez"
+    ],
+    "total_samples": 50,
+    "correct": 32,
+    "classification_report": "              precision    recall  f1-score   support\n\n         sim       0.60      1.00      0.75        26\n         não       0.86      0.29      0.43        21\n      talvez       0.00      0.00      0.00         3\n\n    accuracy                           0.64        50\n   macro avg       0.49      0.43      0.39        50\nweighted avg       0.67      0.64      0.57        50\n"
+  },
+  "llm_judge": {
+    "total_evaluated": 50,
+    "errors": 50,
+    "averages": {
+      "relevancia": 0.0,
+      "completude": 0.0,
+      "precisao_medica": 0.0,
+      "seguranca": 0.0,
+      "citacao_fontes": 0.0,
+      "nota_geral": 0.0
+    },
+    "individual_scores": [
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      },
+      {
+        "relevancia": 0,
+        "completude": 0,
+        "precisao_medica": 0,
+        "seguranca": 0,
+        "citacao_fontes": 0,
+        "nota_geral": 0.0,
+        "media": 0.0,
+        "justificativa": "Erro API: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your_****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+      }
+    ]
+  }
+}

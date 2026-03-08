@@ -1,0 +1,62 @@
+{
+  "id": "PAC-0019",
+  "nome_anonimizado": "[PACIENTE_0019]",
+  "nome_ficticio": "Gabrielly Martins",
+  "idade": 81,
+  "sexo": "M",
+  "setor": "Enfermaria Clínica",
+  "diagnosticos": [
+    "Insuficiência Renal Crônica"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Sinvastatina",
+      "dose": "20mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "PCR",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-03-06",
+      "resultado": null
+    },
+    {
+      "nome": "Hemograma Completo",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-22",
+      "resultado": null
+    },
+    {
+      "nome": "Urina Tipo I",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-03-03",
+      "resultado": null
+    },
+    {
+      "nome": "TGO/TGP",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-16",
+      "resultado": null
+    }
+  ],
+  "alergias": [
+    "Nenhuma alergia conhecida"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 164,
+    "pa_diastolica": 104,
+    "fc": 66,
+    "fr": 17,
+    "temperatura": 36.9,
+    "spo2": 94
+  },
+  "queixa_principal": "Edema generalizado e oligúria",
+  "data_admissao": "2026-02-24"
+}

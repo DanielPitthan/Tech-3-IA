@@ -1,0 +1,100 @@
+{
+  "id": "PAC-0017",
+  "nome_anonimizado": "[PACIENTE_0017]",
+  "nome_ficticio": "Liz da Mata",
+  "idade": 46,
+  "sexo": "F",
+  "setor": "Centro Cirúrgico",
+  "diagnosticos": [
+    "Depressão Maior"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Insulina NPH",
+      "dose": "10UI",
+      "via": "subcutânea",
+      "freq": "2x/dia"
+    },
+    {
+      "nome": "Losartana",
+      "dose": "50mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Amoxicilina",
+      "dose": "500mg",
+      "via": "oral",
+      "freq": "8/8h"
+    },
+    {
+      "nome": "Omeprazol",
+      "dose": "20mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Levotiroxina",
+      "dose": "75mcg",
+      "via": "oral",
+      "freq": "1x/dia"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "Hemograma Completo",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-12",
+      "resultado": null
+    },
+    {
+      "nome": "Urina Tipo I",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-13",
+      "resultado": null
+    },
+    {
+      "nome": "ECG",
+      "tipo": "cardiológico",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-26",
+      "resultado": "Resultado dentro dos parâmetros normais"
+    },
+    {
+      "nome": "T4 Livre",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-28",
+      "resultado": null
+    },
+    {
+      "nome": "Urocultura",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-03-06",
+      "resultado": null
+    },
+    {
+      "nome": "Potássio Sérico",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-18",
+      "resultado": "4.5 mEq/L"
+    }
+  ],
+  "alergias": [
+    "Látex"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 151,
+    "pa_diastolica": 107,
+    "fc": 94,
+    "fr": 16,
+    "temperatura": 39.0,
+    "spo2": 88
+  },
+  "queixa_principal": "Tristeza persistente e insônia há 2 meses",
+  "data_admissao": "2026-02-22"
+}

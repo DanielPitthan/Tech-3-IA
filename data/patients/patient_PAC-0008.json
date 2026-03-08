@@ -1,0 +1,70 @@
+{
+  "id": "PAC-0008",
+  "nome_anonimizado": "[PACIENTE_0008]",
+  "nome_ficticio": "João Felipe Albuquerque",
+  "idade": 81,
+  "sexo": "M",
+  "setor": "UTI",
+  "diagnosticos": [
+    "Doença Pulmonar Obstrutiva Crônica",
+    "Anemia Ferropriva"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Warfarina",
+      "dose": "5mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "PCR",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-03-06",
+      "resultado": "42.9 mg/L"
+    },
+    {
+      "nome": "HbA1c",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-14",
+      "resultado": null
+    },
+    {
+      "nome": "INR",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-10",
+      "resultado": "1.80"
+    },
+    {
+      "nome": "Creatinina Sérica",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-18",
+      "resultado": "3.57 mg/dL"
+    },
+    {
+      "nome": "Urina Tipo I",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-21",
+      "resultado": "Resultado dentro dos parâmetros normais"
+    }
+  ],
+  "alergias": [
+    "Látex"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 152,
+    "pa_diastolica": 90,
+    "fc": 83,
+    "fr": 17,
+    "temperatura": 38.4,
+    "spo2": 89
+  },
+  "queixa_principal": "Dispneia progressiva e sibilos",
+  "data_admissao": "2026-02-24"
+}

@@ -1,0 +1,86 @@
+{
+  "id": "PAC-0013",
+  "nome_anonimizado": "[PACIENTE_0013]",
+  "nome_ficticio": "Maria Clara Dias",
+  "idade": 29,
+  "sexo": "M",
+  "setor": "Ambulatório",
+  "diagnosticos": [
+    "Pneumonia Adquirida na Comunidade"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Omeprazol",
+      "dose": "20mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Metformina",
+      "dose": "850mg",
+      "via": "oral",
+      "freq": "2x/dia"
+    },
+    {
+      "nome": "Amoxicilina",
+      "dose": "500mg",
+      "via": "oral",
+      "freq": "8/8h"
+    },
+    {
+      "nome": "Warfarina",
+      "dose": "5mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Levotiroxina",
+      "dose": "75mcg",
+      "via": "oral",
+      "freq": "1x/dia"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "Urina Tipo I",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-26",
+      "resultado": null
+    },
+    {
+      "nome": "ECG",
+      "tipo": "cardiológico",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-06",
+      "resultado": "Resultado dentro dos parâmetros normais"
+    },
+    {
+      "nome": "Urocultura",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-03-06",
+      "resultado": null
+    },
+    {
+      "nome": "Potássio Sérico",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-16",
+      "resultado": "6.3 mEq/L"
+    }
+  ],
+  "alergias": [
+    "Nenhuma alergia conhecida"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 130,
+    "pa_diastolica": 89,
+    "fc": 77,
+    "fr": 17,
+    "temperatura": 36.4,
+    "spo2": 96
+  },
+  "queixa_principal": "Tosse produtiva e febre há 5 dias",
+  "data_admissao": "2026-03-02"
+}

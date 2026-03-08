@@ -1,0 +1,76 @@
+{
+  "id": "PAC-0018",
+  "nome_anonimizado": "[PACIENTE_0018]",
+  "nome_ficticio": "Sra. Luana Brito",
+  "idade": 57,
+  "sexo": "M",
+  "setor": "Unidade Coronariana",
+  "diagnosticos": [
+    "Trombose Venosa Profunda",
+    "Pneumonia Adquirida na Comunidade"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Enalapril",
+      "dose": "10mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Insulina NPH",
+      "dose": "10UI",
+      "via": "subcutânea",
+      "freq": "2x/dia"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "PCR",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-03-04",
+      "resultado": null
+    },
+    {
+      "nome": "Glicemia de Jejum",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-03-07",
+      "resultado": null
+    },
+    {
+      "nome": "HbA1c",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-16",
+      "resultado": null
+    },
+    {
+      "nome": "INR",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-23",
+      "resultado": null
+    },
+    {
+      "nome": "Ecocardiograma",
+      "tipo": "cardiológico",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-03-03",
+      "resultado": "Resultado dentro dos parâmetros normais"
+    }
+  ],
+  "alergias": [
+    "Sulfa"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 137,
+    "pa_diastolica": 110,
+    "fc": 85,
+    "fr": 20,
+    "temperatura": 35.8,
+    "spo2": 91
+  },
+  "queixa_principal": "Dor e edema em membro inferior esquerdo",
+  "data_admissao": "2026-02-28"
+}

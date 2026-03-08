@@ -1,0 +1,41 @@
+{
+  "model_name": "ollama-llama3",
+  "dataset_name": "data/processed/dataset_test.jsonl",
+  "samples_evaluated": 100,
+  "inference_time_seconds": 3338.21,
+  "avg_inference_time_per_sample": 33.382,
+  "exact_match": 0.0,
+  "token_f1": 0.0807,
+  "classification_metrics": {
+    "accuracy": 0.63,
+    "f1_macro": 0.3867,
+    "f1_weighted": 0.5813,
+    "precision_macro": 0.4204,
+    "recall_macro": 0.4035,
+    "confusion_matrix": [
+      [
+        51,
+        6,
+        0
+      ],
+      [
+        26,
+        12,
+        0
+      ],
+      [
+        4,
+        1,
+        0
+      ]
+    ],
+    "labels": [
+      "sim",
+      "não",
+      "talvez"
+    ],
+    "total_samples": 100,
+    "correct": 63,
+    "classification_report": "              precision    recall  f1-score   support\n\n         sim       0.63      0.89      0.74        57\n         não       0.63      0.32      0.42        38\n      talvez       0.00      0.00      0.00         5\n\n    accuracy                           0.63       100\n   macro avg       0.42      0.40      0.39       100\nweighted avg       0.60      0.63      0.58       100\n"
+  }
+}

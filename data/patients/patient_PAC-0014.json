@@ -1,0 +1,72 @@
+{
+  "id": "PAC-0014",
+  "nome_anonimizado": "[PACIENTE_0014]",
+  "nome_ficticio": "Giovanna das Neves",
+  "idade": 89,
+  "sexo": "M",
+  "setor": "Ambulatório",
+  "diagnosticos": [
+    "Fibrilação Atrial"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Furosemida",
+      "dose": "40mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Omeprazol",
+      "dose": "20mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Warfarina",
+      "dose": "5mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "AAS",
+      "dose": "100mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Enalapril",
+      "dose": "10mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "Raio-X de Tórax",
+      "tipo": "imagem",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-16",
+      "resultado": null
+    },
+    {
+      "nome": "HbA1c",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-18",
+      "resultado": null
+    }
+  ],
+  "alergias": [
+    "Nenhuma alergia conhecida"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 102,
+    "pa_diastolica": 108,
+    "fc": 81,
+    "fr": 13,
+    "temperatura": 39.2,
+    "spo2": 96
+  },
+  "queixa_principal": "Palpitações e desconforto torácico",
+  "data_admissao": "2026-03-08"
+}

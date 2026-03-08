@@ -1,0 +1,49 @@
+{
+  "id": "PAC-0015",
+  "nome_anonimizado": "[PACIENTE_0015]",
+  "nome_ficticio": "Gabriel da Costa",
+  "idade": 23,
+  "sexo": "F",
+  "setor": "Unidade Coronariana",
+  "diagnosticos": [
+    "Trombose Venosa Profunda",
+    "Depressão Maior"
+  ],
+  "medicamentos_em_uso": [],
+  "exames": [
+    {
+      "nome": "Urocultura",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-23",
+      "resultado": null
+    },
+    {
+      "nome": "PCR",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-10",
+      "resultado": "72.6 mg/L"
+    },
+    {
+      "nome": "Urina Tipo I",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-28",
+      "resultado": "Resultado dentro dos parâmetros normais"
+    }
+  ],
+  "alergias": [
+    "Nenhuma alergia conhecida"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 173,
+    "pa_diastolica": 93,
+    "fc": 120,
+    "fr": 19,
+    "temperatura": 36.4,
+    "spo2": 92
+  },
+  "queixa_principal": "Dor e edema em membro inferior esquerdo",
+  "data_admissao": "2026-03-02"
+}

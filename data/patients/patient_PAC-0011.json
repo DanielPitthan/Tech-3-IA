@@ -1,0 +1,83 @@
+{
+  "id": "PAC-0011",
+  "nome_anonimizado": "[PACIENTE_0011]",
+  "nome_ficticio": "Dra. Sofia Montenegro",
+  "idade": 45,
+  "sexo": "F",
+  "setor": "Enfermaria Clínica",
+  "diagnosticos": [
+    "Insuficiência Renal Crônica",
+    "Hipotireoidismo"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Warfarina",
+      "dose": "5mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Furosemida",
+      "dose": "40mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Sinvastatina",
+      "dose": "20mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "Hemograma Completo",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-28",
+      "resultado": null
+    },
+    {
+      "nome": "Glicemia de Jejum",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-03-07",
+      "resultado": "128 mg/dL"
+    },
+    {
+      "nome": "TGO/TGP",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-26",
+      "resultado": null
+    },
+    {
+      "nome": "Urina Tipo I",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-03-04",
+      "resultado": null
+    },
+    {
+      "nome": "Raio-X de Tórax",
+      "tipo": "imagem",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-11",
+      "resultado": null
+    }
+  ],
+  "alergias": [
+    "Contraste Iodado",
+    "AINEs"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 149,
+    "pa_diastolica": 88,
+    "fc": 86,
+    "fr": 16,
+    "temperatura": 38.5,
+    "spo2": 95
+  },
+  "queixa_principal": "Edema generalizado e oligúria",
+  "data_admissao": "2026-02-25"
+}

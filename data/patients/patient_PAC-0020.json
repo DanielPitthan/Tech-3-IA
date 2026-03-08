@@ -1,0 +1,62 @@
+{
+  "id": "PAC-0020",
+  "nome_anonimizado": "[PACIENTE_0020]",
+  "nome_ficticio": "Ana Luiza Correia",
+  "idade": 91,
+  "sexo": "M",
+  "setor": "UTI",
+  "diagnosticos": [
+    "Diabetes Mellitus Tipo 2"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Insulina NPH",
+      "dose": "10UI",
+      "via": "subcutânea",
+      "freq": "2x/dia"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "Raio-X de Tórax",
+      "tipo": "imagem",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-06",
+      "resultado": null
+    },
+    {
+      "nome": "TGO/TGP",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-16",
+      "resultado": null
+    },
+    {
+      "nome": "Urocultura",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-09",
+      "resultado": null
+    },
+    {
+      "nome": "HbA1c",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-03-08",
+      "resultado": null
+    }
+  ],
+  "alergias": [
+    "AINEs"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 166,
+    "pa_diastolica": 61,
+    "fc": 98,
+    "fr": 17,
+    "temperatura": 38.3,
+    "spo2": 99
+  },
+  "queixa_principal": "Polidipsia e poliúria há 1 semana",
+  "data_admissao": "2026-02-22"
+}

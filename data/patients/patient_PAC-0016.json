@@ -1,0 +1,93 @@
+{
+  "id": "PAC-0016",
+  "nome_anonimizado": "[PACIENTE_0016]",
+  "nome_ficticio": "Ana Cecília Andrade",
+  "idade": 92,
+  "sexo": "M",
+  "setor": "Enfermaria Clínica",
+  "diagnosticos": [
+    "Insuficiência Cardíaca Congestiva"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Levotiroxina",
+      "dose": "75mcg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Enalapril",
+      "dose": "10mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Losartana",
+      "dose": "50mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Warfarina",
+      "dose": "5mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Insulina NPH",
+      "dose": "10UI",
+      "via": "subcutânea",
+      "freq": "2x/dia"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "Raio-X de Tórax",
+      "tipo": "imagem",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-23",
+      "resultado": "Resultado dentro dos parâmetros normais"
+    },
+    {
+      "nome": "Sódio Sérico",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-27",
+      "resultado": null
+    },
+    {
+      "nome": "Potássio Sérico",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-03-03",
+      "resultado": null
+    },
+    {
+      "nome": "T4 Livre",
+      "tipo": "laboratorial",
+      "status": "realizado",
+      "data_solicitacao": "2026-02-27",
+      "resultado": null
+    },
+    {
+      "nome": "ECG",
+      "tipo": "cardiológico",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-17",
+      "resultado": null
+    }
+  ],
+  "alergias": [
+    "Látex"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 131,
+    "pa_diastolica": 108,
+    "fc": 64,
+    "fr": 17,
+    "temperatura": 36.3,
+    "spo2": 90
+  },
+  "queixa_principal": "Dispneia aos esforços e edema de MMII",
+  "data_admissao": "2026-03-01"
+}

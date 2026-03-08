@@ -1,7 +1,7 @@
 {
   "id": "PAC-0002",
   "nome_anonimizado": "[PACIENTE_0002]",
-  "nome_ficticio": "Emilly Cunha",
+  "nome_ficticio": "Sophia Pimenta",
   "idade": 70,
   "sexo": "F",
   "setor": "UTI",
@@ -23,21 +23,21 @@
       "nome": "Sódio Sérico",
       "tipo": "laboratorial",
       "status": "pendente",
-      "data_solicitacao": "2026-02-17",
+      "data_solicitacao": "2026-02-18",
       "resultado": null
     },
     {
       "nome": "Hemograma Completo",
       "tipo": "laboratorial",
       "status": "pendente",
-      "data_solicitacao": "2026-03-04",
+      "data_solicitacao": "2026-03-05",
       "resultado": null
     },
     {
       "nome": "T4 Livre",
       "tipo": "laboratorial",
       "status": "pendente",
-      "data_solicitacao": "2026-02-11",
+      "data_solicitacao": "2026-02-12",
       "resultado": null
     }
   ],
@@ -53,5 +53,5 @@
     "spo2": 98
   },
   "queixa_principal": "Edema generalizado e oligúria",
-  "data_admissao": "2026-03-05"
+  "data_admissao": "2026-03-06"
 }

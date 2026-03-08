@@ -1,0 +1,80 @@
+{
+  "id": "PAC-0006",
+  "nome_anonimizado": "[PACIENTE_0006]",
+  "nome_ficticio": "Arthur Gabriel das Neves",
+  "idade": 88,
+  "sexo": "F",
+  "setor": "Unidade Coronariana",
+  "diagnosticos": [
+    "Pneumonia Adquirida na Comunidade",
+    "Insuficiência Renal Crônica"
+  ],
+  "medicamentos_em_uso": [
+    {
+      "nome": "Furosemida",
+      "dose": "40mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Omeprazol",
+      "dose": "20mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Warfarina",
+      "dose": "5mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "Enalapril",
+      "dose": "10mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    },
+    {
+      "nome": "AAS",
+      "dose": "100mg",
+      "via": "oral",
+      "freq": "1x/dia"
+    }
+  ],
+  "exames": [
+    {
+      "nome": "Ureia",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-03-01",
+      "resultado": "69 mg/dL"
+    },
+    {
+      "nome": "Creatinina Sérica",
+      "tipo": "laboratorial",
+      "status": "resultado_disponivel",
+      "data_solicitacao": "2026-02-19",
+      "resultado": "3.42 mg/dL"
+    },
+    {
+      "nome": "Urina Tipo I",
+      "tipo": "laboratorial",
+      "status": "pendente",
+      "data_solicitacao": "2026-02-24",
+      "resultado": null
+    }
+  ],
+  "alergias": [
+    "Dipirona"
+  ],
+  "sinais_vitais": {
+    "pa_sistolica": 103,
+    "pa_diastolica": 83,
+    "fc": 67,
+    "fr": 21,
+    "temperatura": 37.8,
+    "spo2": 97
+  },
+  "queixa_principal": "Tosse produtiva e febre há 5 dias",
+  "data_admissao": "2026-03-05"
+}
