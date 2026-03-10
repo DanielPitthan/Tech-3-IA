@@ -1,0 +1,255 @@
+{
+  "model_name": "ollama-llama3",
+  "dataset_name": "data/processed/dataset_test.jsonl",
+  "samples_evaluated": 20,
+  "inference_time_seconds": 218.52,
+  "avg_inference_time_per_sample": 10.926,
+  "exact_match": 0.0,
+  "token_f1": 0.125,
+  "classification_metrics": {
+    "accuracy": 0.75,
+    "f1_macro": 0.4759,
+    "f1_weighted": 0.7066,
+    "precision_macro": 0.5686,
+    "recall_macro": 0.4762,
+    "confusion_matrix": [
+      [
+        12,
+        0,
+        0
+      ],
+      [
+        4,
+        3,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ]
+    ],
+    "labels": [
+      "sim",
+      "não",
+      "talvez"
+    ],
+    "total_samples": 20,
+    "correct": 15,
+    "classification_report": "              precision    recall  f1-score   support\n\n         sim       0.71      1.00      0.83        12\n         não       1.00      0.43      0.60         7\n      talvez       0.00      0.00      0.00         1\n\n    accuracy                           0.75        20\n   macro avg       0.57      0.48      0.48        20\nweighted avg       0.77      0.75      0.71        20\n"
+  },
+  "llm_judge": {
+    "total_evaluated": 20,
+    "errors": 0,
+    "averages": {
+      "relevancia": 3.95,
+      "completude": 4.1,
+      "precisao_medica": 4.2,
+      "seguranca": 4.55,
+      "citacao_fontes": 2.7,
+      "nota_geral": 3.9
+    },
+    "individual_scores": [
+      {
+        "relevancia": 5,
+        "completude": 5,
+        "precisao_medica": 5,
+        "seguranca": 5,
+        "citacao_fontes": 4,
+        "nota_geral": 4.8,
+        "media": 4.8,
+        "justificativa": "A resposta aborda diretamente a pergunta sobre o papel dos mitocôndios na PCD, cobrindo os pontos essenciais com informações precisas e seguras. A justificativa é bem fundamentada, embora não cite fontes específicas, o que impede uma nota máxima nesse critério."
+      },
+      {
+        "relevancia": 2,
+        "completude": 3,
+        "precisao_medica": 3,
+        "seguranca": 5,
+        "citacao_fontes": 2,
+        "nota_geral": 3.0,
+        "media": 3.0,
+        "justificativa": "A resposta do assistente não aborda diretamente a pergunta, que pedia uma decisão clara e uma justificativa baseada em evidências. A decisão 'Sim' é incorreta, pois a justificativa apresentada não sustenta essa resposta. Embora a resposta mencione diferenças entre os métodos de medição, não considera a leve superestimação do Snellen E em comparação ao Landolt C, o que é crucial para a decisão. A segurança é mantida, mas a citação de fontes é fraca, pois não fornece referências específicas ou evidências diretas."
+      },
+      {
+        "relevancia": 5,
+        "completude": 5,
+        "precisao_medica": 5,
+        "seguranca": 5,
+        "citacao_fontes": 3,
+        "nota_geral": 4.6,
+        "media": 4.6,
+        "justificativa": "A resposta aborda diretamente a pergunta e fornece uma justificativa detalhada com base em evidências clínicas. As informações médicas estão corretas e a resposta evita recomendações perigosas. No entanto, não há referências explícitas a fontes específicas, o que poderia melhorar a credibilidade."
+      },
+      {
+        "relevancia": 5,
+        "completude": 5,
+        "precisao_medica": 4,
+        "seguranca": 5,
+        "citacao_fontes": 2,
+        "nota_geral": 4.2,
+        "media": 4.2,
+        "justificativa": "A resposta aborda diretamente a pergunta e fornece uma justificativa detalhada, mas carece de referências explícitas a estudos ou evidências que sustentem as afirmações feitas."
+      },
+      {
+        "relevancia": 2,
+        "completude": 3,
+        "precisao_medica": 4,
+        "seguranca": 3,
+        "citacao_fontes": 2,
+        "nota_geral": 2.8,
+        "media": 2.8,
+        "justificativa": "A resposta do assistente não aborda diretamente a complexidade da questão, que sugere uma decisão de 'Talvez' devido à alta mortalidade em pacientes idosos. Embora a justificativa forneça dados relevantes sobre mortalidade, falta uma análise mais profunda das implicações e recomendações para melhorar os resultados, além de não citar fontes específicas que sustentem as afirmações."
+      },
+      {
+        "relevancia": 1,
+        "completude": 2,
+        "precisao_medica": 2,
+        "seguranca": 3,
+        "citacao_fontes": 4,
+        "nota_geral": 2.4,
+        "media": 2.4,
+        "justificativa": "A resposta do assistente não aborda corretamente a pergunta, que pedia uma decisão de 'Não' e justificativa baseada em evidências. A resposta foi 'Sim', o que demonstra falta de relevância. Embora mencione aspectos relevantes sobre heterogeneidade na reportagem, a conclusão não está alinhada com a questão proposta. A precisão médica é questionável, pois a necessidade de correção para heterogeneidade não é universalmente aceita como essencial. As referências citadas são pertinentes, mas não diretamente aplicáveis ao contexto da pergunta."
+      },
+      {
+        "relevancia": 5,
+        "completude": 4,
+        "precisao_medica": 4,
+        "seguranca": 5,
+        "citacao_fontes": 2,
+        "nota_geral": 4.0,
+        "media": 4.0,
+        "justificativa": "A resposta aborda diretamente a pergunta e fornece uma justificativa detalhada, mas carece de referências específicas para apoiar as afirmações feitas sobre os marcadores laboratoriais. A precisão médica é boa, mas a falta de fontes diminui a credibilidade da resposta."
+      },
+      {
+        "relevancia": 5,
+        "completude": 5,
+        "precisao_medica": 5,
+        "seguranca": 5,
+        "citacao_fontes": 4,
+        "nota_geral": 4.8,
+        "media": 4.8,
+        "justificativa": "A resposta aborda diretamente a pergunta, fornece uma justificativa detalhada com base em evidências, e as informações médicas estão corretas e seguras. A única limitação é a falta de uma citação direta ao estudo mencionado, embora a referência ao 'Journal of Pain and Symptom Management' seja adequada."
+      },
+      {
+        "relevancia": 5,
+        "completude": 5,
+        "precisao_medica": 5,
+        "seguranca": 5,
+        "citacao_fontes": 3,
+        "nota_geral": 4.6,
+        "media": 4.6,
+        "justificativa": "A resposta aborda diretamente a pergunta, fornece uma justificativa detalhada e apresenta dados relevantes do estudo, demonstrando a viabilidade do modelo de treinamento. No entanto, não cita fontes específicas, o que poderia fortalecer a credibilidade da informação."
+      },
+      {
+        "relevancia": 5,
+        "completude": 4,
+        "precisao_medica": 5,
+        "seguranca": 5,
+        "citacao_fontes": 3,
+        "nota_geral": 4.4,
+        "media": 4.4,
+        "justificativa": "A resposta aborda diretamente a pergunta e fornece uma justificativa clara e baseada em evidências. A precisão médica está correta, e a segurança é mantida ao não fazer recomendações perigosas. No entanto, a resposta poderia incluir referências mais explícitas às fontes utilizadas para fortalecer a credibilidade."
+      },
+      {
+        "relevancia": 5,
+        "completude": 5,
+        "precisao_medica": 5,
+        "seguranca": 5,
+        "citacao_fontes": 3,
+        "nota_geral": 4.6,
+        "media": 4.6,
+        "justificativa": "A resposta aborda diretamente a pergunta, fornece uma justificativa detalhada e precisa, e discute a relevância clínica das descobertas. No entanto, não cita fontes específicas, o que poderia fortalecer a credibilidade das informações apresentadas."
+      },
+      {
+        "relevancia": 5,
+        "completude": 5,
+        "precisao_medica": 5,
+        "seguranca": 5,
+        "citacao_fontes": 3,
+        "nota_geral": 4.6,
+        "media": 4.6,
+        "justificativa": "A resposta aborda diretamente a pergunta e fornece uma justificativa detalhada com base em evidências, explicando a capacidade dos nomogramas em prever resultados mais relevantes. As informações médicas estão corretas e a resposta é segura. No entanto, a falta de referências específicas para as evidências citadas diminui a pontuação na citação de fontes."
+      },
+      {
+        "relevancia": 3,
+        "completude": 3,
+        "precisao_medica": 3,
+        "seguranca": 4,
+        "citacao_fontes": 2,
+        "nota_geral": 3.0,
+        "media": 3.0,
+        "justificativa": "A resposta aborda a questão da permanência da perda visual em ambliopia, mas a decisão de 'Talvez' é ambígua e não reflete claramente a evidência apresentada. A justificativa menciona um estudo, mas não fornece detalhes suficientes sobre a metodologia ou limitações, e a citação de fontes é fraca, o que compromete a precisão e a segurança da informação."
+      },
+      {
+        "relevancia": 5,
+        "completude": 4,
+        "precisao_medica": 5,
+        "seguranca": 5,
+        "citacao_fontes": 3,
+        "nota_geral": 4.4,
+        "media": 4.4,
+        "justificativa": "A resposta aborda diretamente a pergunta e fornece uma justificativa detalhada com dados relevantes. A precisão médica é alta, mas a citação de fontes poderia ser melhorada, pois não menciona referências específicas. A completude é boa, mas poderia incluir mais detalhes sobre as implicações dos clusters identificados."
+      },
+      {
+        "relevancia": 2,
+        "completude": 3,
+        "precisao_medica": 3,
+        "seguranca": 4,
+        "citacao_fontes": 1,
+        "nota_geral": 2.6,
+        "media": 2.6,
+        "justificativa": "A resposta do assistente não aborda diretamente a incerteza da questão, afirmando 'Sim' em vez de 'Talvez'. Embora forneça informações sobre a associação da HER2 com a sobrevida, não menciona a falta de significância na análise multivariada, o que é crucial para uma avaliação precisa. Além disso, não cita fontes ou evidências específicas, o que compromete a credibilidade da resposta."
+      },
+      {
+        "relevancia": 5,
+        "completude": 5,
+        "precisao_medica": 5,
+        "seguranca": 5,
+        "citacao_fontes": 3,
+        "nota_geral": 4.6,
+        "media": 4.6,
+        "justificativa": "A resposta aborda diretamente a questão da ototoxicidade do halofantrine, apresentando uma justificativa detalhada com base em evidências de estudos em animais. As informações médicas estão corretas e a resposta inclui ressalvas sobre a prescrição do medicamento. No entanto, a falta de referências diretas a fontes específicas reduz a pontuação em citação de fontes."
+      },
+      {
+        "relevancia": 5,
+        "completude": 5,
+        "precisao_medica": 5,
+        "seguranca": 5,
+        "citacao_fontes": 4,
+        "nota_geral": 4.8,
+        "media": 4.8,
+        "justificativa": "A resposta aborda diretamente a pergunta, fornece uma justificativa detalhada e apresenta dados relevantes do estudo, demonstrando precisão médica. No entanto, a citação de fontes poderia ser melhorada com referências diretas ao estudo mencionado."
+      },
+      {
+        "relevancia": 3,
+        "completude": 4,
+        "precisao_medica": 4,
+        "seguranca": 4,
+        "citacao_fontes": 2,
+        "nota_geral": 3.4,
+        "media": 3.4,
+        "justificativa": "A resposta aborda a questão, mas a decisão de 'Talvez' não é clara e contradiz a evidência apresentada. A justificativa é detalhada e cobre aspectos importantes, mas falta uma citação direta de fontes ou evidências específicas que sustentem a análise."
+      },
+      {
+        "relevancia": 1,
+        "completude": 2,
+        "precisao_medica": 2,
+        "seguranca": 3,
+        "citacao_fontes": 1,
+        "nota_geral": 1.8,
+        "media": 1.8,
+        "justificativa": "A resposta do assistente contraria a decisão esperada e não aborda adequadamente a evidência que sugere que HCCs bem diferenciados não são considerados cânceres precoces. Além disso, a justificativa apresenta informações que não são precisas e carece de referências a fontes confiáveis."
+      },
+      {
+        "relevancia": 5,
+        "completude": 5,
+        "precisao_medica": 5,
+        "seguranca": 5,
+        "citacao_fontes": 3,
+        "nota_geral": 4.6,
+        "media": 4.6,
+        "justificativa": "A resposta aborda diretamente a pergunta, fornecendo uma justificativa detalhada e relevante sobre a eficácia da PCR em tempo real na identificação de pólen alergênico. As informações são precisas e cobrem os pontos essenciais, mas a resposta não cita fontes específicas, o que poderia fortalecer a credibilidade das afirmações."
+      }
+    ]
+  }
+}
