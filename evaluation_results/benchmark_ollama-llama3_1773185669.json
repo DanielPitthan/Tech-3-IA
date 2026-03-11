@@ -1,0 +1,105 @@
+{
+  "model_name": "ollama-llama3",
+  "dataset_name": "data/processed/dataset_test.jsonl",
+  "samples_evaluated": 5,
+  "inference_time_seconds": 140.22,
+  "avg_inference_time_per_sample": 28.044,
+  "exact_match": 0.0,
+  "token_f1": 0.0788,
+  "classification_metrics": {
+    "accuracy": 0.6,
+    "f1_macro": 0.4444,
+    "f1_weighted": 0.5333,
+    "precision_macro": 0.5,
+    "recall_macro": 0.5,
+    "confusion_matrix": [
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ]
+    ],
+    "labels": [
+      "sim",
+      "não",
+      "talvez"
+    ],
+    "total_samples": 5,
+    "correct": 3,
+    "classification_report": "              precision    recall  f1-score   support\n\n         sim       0.50      1.00      0.67         2\n         não       1.00      0.50      0.67         2\n      talvez       0.00      0.00      0.00         1\n\n    accuracy                           0.60         5\n   macro avg       0.50      0.50      0.44         5\nweighted avg       0.60      0.60      0.53         5\n"
+  },
+  "llm_judge": {
+    "total_evaluated": 5,
+    "errors": 0,
+    "averages": {
+      "relevancia": 3.6,
+      "completude": 4.0,
+      "precisao_medica": 4.0,
+      "seguranca": 4.6,
+      "citacao_fontes": 2.4,
+      "nota_geral": 3.72
+    },
+    "individual_scores": [
+      {
+        "relevancia": 5,
+        "completude": 5,
+        "precisao_medica": 5,
+        "seguranca": 5,
+        "citacao_fontes": 4,
+        "nota_geral": 4.8,
+        "media": 4.8,
+        "justificativa": "A resposta aborda diretamente a pergunta sobre o papel dos mitocôndios na PCD, cobrindo os pontos essenciais com informações precisas e seguras. A justificativa é bem fundamentada, embora não cite fontes específicas, o que impede uma nota máxima nesse critério."
+      },
+      {
+        "relevancia": 2,
+        "completude": 3,
+        "precisao_medica": 3,
+        "seguranca": 5,
+        "citacao_fontes": 1,
+        "nota_geral": 2.8,
+        "media": 2.8,
+        "justificativa": "A resposta não aborda corretamente a pergunta, pois a decisão deveria ser 'Não' com base nas evidências apresentadas. Embora a justificativa forneça algumas informações relevantes, ela não é suficiente para apoiar a resposta dada e carece de referências claras ao estudo mencionado."
+      },
+      {
+        "relevancia": 5,
+        "completude": 5,
+        "precisao_medica": 5,
+        "seguranca": 5,
+        "citacao_fontes": 3,
+        "nota_geral": 4.6,
+        "media": 4.6,
+        "justificativa": "A resposta aborda diretamente a pergunta e fornece uma justificativa detalhada com base em evidências clínicas. As informações médicas estão corretas e a resposta evita recomendações perigosas. No entanto, não há referências explícitas a fontes ou estudos, o que poderia fortalecer a argumentação."
+      },
+      {
+        "relevancia": 4,
+        "completude": 4,
+        "precisao_medica": 3,
+        "seguranca": 5,
+        "citacao_fontes": 2,
+        "nota_geral": 3.6,
+        "media": 3.6,
+        "justificativa": "A resposta aborda a pergunta, mas a decisão de 'Talvez' não é tão clara quanto a resposta esperada de 'Não'. A justificativa menciona pontos relevantes, mas a precisão médica é comprometida ao não enfatizar as diferenças significativas encontradas no estudo. A segurança é mantida, mas a citação de fontes é fraca, pois não há referências diretas ao estudo mencionado."
+      },
+      {
+        "relevancia": 2,
+        "completude": 3,
+        "precisao_medica": 4,
+        "seguranca": 3,
+        "citacao_fontes": 2,
+        "nota_geral": 2.8,
+        "media": 2.8,
+        "justificativa": "A resposta do assistente não aborda diretamente a pergunta, que requer uma decisão de 'Sim', 'Não' ou 'Talvez', e uma justificativa detalhada. Embora a justificativa fornecida contenha informações relevantes sobre mortalidade e a importância da idade, falta uma análise mais profunda e uma conclusão clara que se alinhe com a decisão inicial. Além disso, não há referências a fontes específicas que sustentem as afirmações feitas."
+      }
+    ]
+  }
+}
